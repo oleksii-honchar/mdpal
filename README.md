@@ -36,6 +36,10 @@ Also one can check `Makefile` for more details on automation commands.
   - `ref.primary.primary90`-> `ref.primary.100`
 - Fixes the token color reference to proper palette color code according to Figma tmpl
 
+## Troubleshooting
+
+- Root `tsconfig.json` used for IDE. `.configs/tsconfig.2022.json` for build time by Webpack. So they partially overlaps.
+
 ## TODO
 
 - resolve typecheck errors
