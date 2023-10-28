@@ -1,13 +1,12 @@
 import { lazy, Suspense, ReactElement } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { BigSpinner } from "src/components/BigSpinner.tsx";
 import { Layout } from "./components/Layout.tsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ErrorBoundary } from "src/components/ErrorBoundary.tsx";
 import { NavContextProvider } from "src/contexts/NavigationContext.tsx";
 
-const AboutPage = lazy(() => import("src/pages/About/AboutPage.tsx"));
-const PalettePage = lazy(() => import("src/pages/Palette/PalettePage.tsx"));
+const MainPage = lazy(() => import("src/pages/Main/MainPage.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -17,15 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PalettePage />,
-      },
-      {
-        path: "about",
-        element: <AboutPage />,
-      },
-      {
-        path: "palette",
-        element: <PalettePage />,
+        element: <MainPage />,
       },
     ],
   },

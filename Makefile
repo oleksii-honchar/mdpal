@@ -93,7 +93,6 @@ watch-loc:  ## No dev server - only file watch and rebuild
 
 install-tools: ## install ncu for new node version
 	npm i -g npm-check-updates
-	npm i -g tsconf-checker
 	npm i -g markdown-toc
 	brew install jq
 
