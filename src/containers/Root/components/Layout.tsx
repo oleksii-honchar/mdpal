@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import { PageNavbar } from "src/components/PageNavbar.tsx";
 import { Footer } from "src/components/Footer.tsx";
@@ -18,6 +19,7 @@ export function Layout({}) {
         <Outlet />
       </main>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

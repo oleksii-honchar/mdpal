@@ -5,7 +5,7 @@ import { BigSpinner } from "src/components/BigSpinner.tsx";
 import { Layout } from "./components/Layout.tsx";
 import { ErrorBoundary } from "src/components/ErrorBoundary.tsx";
 
-const MainPage = lazy(() => import("src/pages/Main/MainPage.tsx"));
+const ConvertorPage = lazy(() => import("src/pages/Convertor/ConvertorPage.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <MainPage />,
+        element: <ConvertorPage />,
       },
     ],
   },

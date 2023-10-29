@@ -8,5 +8,6 @@ export const externalsConfig: {} = {
     react: "React",
     "react-dom": "ReactDOM",
     moment: "moment",
+    "react-popper": "react-popper",
   },
 };
