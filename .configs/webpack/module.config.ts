@@ -1,12 +1,13 @@
 import path from "path";
 import { getRootRepoDir } from "scripts/esm-utils.ts";
 import { blablo } from "blablo";
+import { StringIndex } from "src/typings/index.js";
 
 const logHeader = "[webpack:config:snippet]".cyan;
 blablo.log(logHeader, "loading", "'Module'".white.bold).finish();
 
 export const moduleConfig = (env: any = {}) => {
-  let tsLoaderCfg: any = {
+  let tsLoaderCfg: StringIndex = {
     test: /\.([cm]?ts|tsx)$/,
     exclude: [/\.(spec|e2e|d)\.[tj]sx?$/],
   };

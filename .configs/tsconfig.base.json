@@ -4,7 +4,6 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
-    "baseUrl": "./",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
@@ -21,15 +20,5 @@
     "sourceMap": true,
     "target": "esnext",
     "types": ["node"]
-  },
-  "include": [
-    "./**/*"
-  ],
-  "exclude": [
-    "./node_modules",
-    "./dist",
-    "./docs",
-    "./coverage",
-    "./devops"
-  ]
+  }
 }

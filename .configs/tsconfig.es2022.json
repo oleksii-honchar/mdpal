@@ -1,12 +1,12 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "../",
+    "baseUrl": "..",
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "lib": [ "DOM", "esnext"],
+    "lib": [ "DOM", "DOM.Iterable", "esnext"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "paths": {
       "src/*": [ "./src/*" ],
       "scripts/*": [ "./scripts/*" ],
@@ -21,10 +21,10 @@
   ],
   "exclude": [
     "../node_modules",
-    "../configs",
+    "../.configs",
     "../dist",
     "../docs",
     "../coverage",
-    "../devops"
+    "../.devops"
   ]
 }

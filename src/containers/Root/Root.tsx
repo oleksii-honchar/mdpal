@@ -1,13 +1,11 @@
 import { lazy, Suspense, ReactElement } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { BigSpinner } from "src/components/BigSpinner.tsx";
 import { Layout } from "./components/Layout.tsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ErrorBoundary } from "src/components/ErrorBoundary.tsx";
-import { NavContextProvider } from "src/contexts/NavigationContext.tsx";
 
-const AboutPage = lazy(() => import("src/pages/About/AboutPage.tsx"));
-const PalettePage = lazy(() => import("src/pages/Palette/PalettePage.tsx"));
+const ConvertorPage = lazy(() => import("src/pages/Convertor/ConvertorPage.tsx"));
 
 const router = createBrowserRouter([
   {
@@ -17,25 +15,16 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PalettePage />,
-      },
-      {
-        path: "about",
-        element: <AboutPage />,
-      },
-      {
-        path: "palette",
-        element: <PalettePage />,
+        element: <ConvertorPage />,
       },
     ],
   },
 ]);
+
 export function Root(): ReactElement {
   return (
     <Suspense fallback={<BigSpinner />}>
-      <NavContextProvider>
-        <RouterProvider router={router} />
-      </NavContextProvider>
+      <RouterProvider router={router} />
     </Suspense>
   );
 }
