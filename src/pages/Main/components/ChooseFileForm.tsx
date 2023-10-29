@@ -1,10 +1,10 @@
 import { TbDownload } from "react-icons/tb";
 
-export default function ChooseFileDialog() {
+export default function ChooseFileForm() {
   return (
     <div
       className={`
-          flex flex-col justify-center items-center w-full w-80 h-40
+          flex flex-col justify-center items-center w-80 h-40
           rounded-md border-dashed border-2 border-md3-ref-primary-primary70
           bg-md3-sys-light-primary-container
           text-md3-sys-light-on-primary-container

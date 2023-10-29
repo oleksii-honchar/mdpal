@@ -1,4 +1,4 @@
-import ChooseFileDialog from "./components/ChooseFileDialog.tsx";
+import ChooseFileForm from "./components/ChooseFileForm.tsx";
 
 export default function MainPage() {
   return (
@@ -7,7 +7,7 @@ export default function MainPage() {
         flex flex-col items-center w-full
       `}
     >
-      <ChooseFileDialog />
+      <ChooseFileForm />
     </article>
   );
 }

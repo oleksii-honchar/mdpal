@@ -1,17 +1,15 @@
-import { useContext } from "react";
-import { HelpModalContext } from "src/contexts/useHelpModal";
+import { useState } from "react";
 import { HelpModalDialog } from "./HelpModalDialog";
 
-export function HelpNavItem() {
-  const { state, setModalState } = useContext(HelpModalContext);
-  // console.log(state);
+export function HelpBtn() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <div
         key="help"
         onClick={() => {
-          setModalState(true);
+          setIsOpen(true);
         }}
         className={`
         text-md3-sys-light-on-primary bg-md3-ref-primary-primary40
@@ -20,7 +18,7 @@ export function HelpNavItem() {
       >
         ?
       </div>
-      <HelpModalDialog />
+      <HelpModalDialog setIsOpen={setIsOpen} isOpen={isOpen} />
     </>
   );
 }
