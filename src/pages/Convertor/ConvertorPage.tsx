@@ -7,7 +7,7 @@ export default function ConvertorPage() {
 
   useEffect(() => {
     if (!themeFile) return;
-    themeConvertor.processFile(themeFile);
+    themeConvertor.processThemeFile(themeFile);
   }, [themeFile]);
 
   return (

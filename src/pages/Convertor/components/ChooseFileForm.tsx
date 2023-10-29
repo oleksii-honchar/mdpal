@@ -55,16 +55,10 @@ export default function ChooseFileForm(props: InferProps<typeof ChooseFileForm.p
     <div
       id="ChooseFileFormCntr"
       className={classNames(
-        `
-        rounded-md 
-        bg-md3-sys-light-primary-container
-      `,
+        "rounded-md",
         isDragOver
-          ? `
-                bg-md3-sys-light-primary
-                text-md3-sys-light-on-primary
-          `
-          : "",
+          ? "text-md3-sys-light-on-primary bg-md3-sys-light-primary"
+          : "text-md3-sys-light-on-primary-container bg-md3-sys-light-primary-container",
       )}
     >
       <div
@@ -72,20 +66,21 @@ export default function ChooseFileForm(props: InferProps<typeof ChooseFileForm.p
         className={classNames(
           `flex flex-col justify-center items-center w-80 h-40
           rounded-md border-dashed border-2 border-md3-ref-primary-primary70
-          bg-md3-sys-light-primary-container
           m-3 transition-all`,
           isDragOver
-            ? `
-                bg-md3-sys-light-primary
-                text-md3-sys-light-on-primary
-          `
-            : "text-md3-sys-light-on-primary-container",
+            ? "text-md3-sys-light-on-primary bg-md3-sys-light-primary"
+            : "text-md3-sys-light-on-primary-container bg-md3-sys-light-primary-container",
         )}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
-        <TbDownload className={` w-20 h-20 `} />
+        <TbDownload
+          className={classNames(
+            "w-20 h-20",
+            isDragOver ? "text-md3-sys-light-on-primary" : "text-md3-sys-light-primary",
+          )}
+        />
         <div className="pt-4">
           <label htmlFor="fileInput" className={`underline decoration-1 cursor-pointer`}>
             Choose file
