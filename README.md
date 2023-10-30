@@ -21,7 +21,8 @@ Also one can check `Makefile` for more details on automation commands.
 - In plugin select your colors for the theme "M3". Click "Apply" for every selected color.
 - When theme update completed, click "Export" -> "Theme.json". Save "material-theme.zip". Unzip it.
 - Drop theme.json to mdpal browser window.
-- Generated tokens files will be downloaded for local use.
+- Generated tokens file will be downloaded for local use
+- Use [mdtex](https://github.com/oleksii-honchar/mdtex) tool to explore palette and tokens.
 
 ## How convert works
 
