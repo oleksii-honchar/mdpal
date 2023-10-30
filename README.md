@@ -1,11 +1,5 @@
 # mdpal
 
-- [Build & Configuration](#build--configuration)
-- [Web App Modules](#web-app-modules)
-- [Git hooks](#git-hooks)
-- [How to use](#how-to-use)
-- [TODO](#todo)
-
 Material Design design token json palette converter from Figma to TailWindCss
 
 ## How to run locally
