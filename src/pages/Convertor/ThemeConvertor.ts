@@ -71,6 +71,22 @@ class ThemeConvertor {
     reader.readAsText(themeFile);
   }
 
+  /**
+   *
+   * @param mdThemeJson
+   * @returns {
+   *  md: {
+   *    sys: {light: {}, dark: {}}
+   *    ref: {
+   *      palette: {
+   *        primary, secondary, neutral, neutral-variant,
+   *        primaryXXX, secondaryXXX, tertiaryXXX,
+   *        errorXXX, neutralXXX, neutral-variantXXX
+   *      }
+   *    }
+   *  }
+   * }
+   */
   convertTheme(mdThemeJson: object) {
     const logHeader = "(convertTheme)";
 
@@ -79,12 +95,6 @@ class ThemeConvertor {
     }
 
     const tailwindTokensJson = {};
-
-    const themeColors = {};
-    Object.entries(nl.get(mdThemeJson, "coreColors")).forEach(([key, value]) => {
-      nl.set(themeColors, camelToKebab(key), value);
-    });
-    nl.set(tailwindTokensJson, "theme", themeColors);
 
     const sysLightColors = {};
     Object.entries(nl.get(mdThemeJson, "schemes.light")).forEach(([key, value]) => {
@@ -98,15 +108,19 @@ class ThemeConvertor {
     });
     nl.set(tailwindTokensJson, "sys.dark", sysDarkColors);
 
+    Object.entries(nl.get(mdThemeJson, "coreColors")).forEach(([key, value]) => {
+      nl.set(tailwindTokensJson, `ref.palette.${camelToKebab(key)}`, value);
+    });
+
     const refThemeKeys = [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 98, 99];
     const refList = ["primary", "secondary", "tertiary", "error", "neutral", "neutralVariant"];
     refList.forEach((ref) => {
       const tokenRef = camelToKebab(ref);
-      nl.set(tailwindTokensJson, `ref.${tokenRef}`, {}); // set object for type infer
+      // nl.set(tailwindTokensJson, `ref.${tokenRef}`, {}); // set object for type infer
 
       refThemeKeys.forEach((key) => {
         const tokenKey = 1000 - key * 10;
-        nl.set(tailwindTokensJson, `ref.${tokenRef}.${tokenKey}`, nl.get(mdThemeJson, `palettes.${ref}.${key}`));
+        nl.set(tailwindTokensJson, `ref.palette.${tokenRef}${tokenKey}`, nl.get(mdThemeJson, `palettes.${ref}.${key}`));
       });
     });
 
@@ -116,7 +130,7 @@ class ThemeConvertor {
 
     return {
       colors: {
-        md3: tailwindTokensJson,
+        md: tailwindTokensJson,
       },
     };
   }

@@ -55,7 +55,7 @@ export default function ChooseFileForm(props: InferProps<typeof ChooseFileForm.p
     <div
       id="ChooseFileFormCntr"
       className={classNames(
-        "rounded-md",
+        "rounded-md transition-all",
         isDragOver
           ? "text-md3-sys-light-on-primary bg-md3-sys-light-primary"
           : "text-md3-sys-light-on-primary-container bg-md3-sys-light-primary-container",
@@ -67,9 +67,7 @@ export default function ChooseFileForm(props: InferProps<typeof ChooseFileForm.p
           `flex flex-col justify-center items-center w-80 h-40
           rounded-md border-dashed border-2 border-md3-ref-primary-primary70
           m-3 transition-all`,
-          isDragOver
-            ? "text-md3-sys-light-on-primary bg-md3-sys-light-primary"
-            : "text-md3-sys-light-on-primary-container bg-md3-sys-light-primary-container",
+          isDragOver ? "text-md3-sys-light-on-primary " : "text-md3-sys-light-on-primary-container ",
         )}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
