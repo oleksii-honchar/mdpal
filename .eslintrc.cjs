@@ -7,7 +7,7 @@ module.exports = {
     errorOnUnknownASTType: true,
     errorOnTypeScriptSyntacticAndSemanticIssues: true,
     sourceType: "module",
-    project: "./tsconfig.json",
+    project: ["./tsconfig.json", "./rnd/tsconfig.json"],
     tsconfigRootDir: __dirname,
   },
   extends: [
@@ -21,12 +21,12 @@ module.exports = {
     "plugin:you-dont-need-lodash-underscore/compatible"
   ],
   rules: {
-    "@typescript-eslint/no-unused-vars": "off",
+    // "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-namespace": "off",
     "import/namespace": "off",
-    "class-methods-use-this": "off",
+    // "class-methods-use-this": "off",
     "dot-notation": ["error", { allowPattern: "^(code)$" }],
     "function-paren-newline": ["error", "consistent"],
     jsxSingleQuote: 0,

@@ -19,7 +19,7 @@ export function Layout({}) {
         <Outlet />
       </main>
       <Footer />
-      <ToastContainer />
+      <ToastContainer position="bottom-right" />
     </div>
   );
 }

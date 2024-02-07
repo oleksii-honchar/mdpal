@@ -1,27 +1,25 @@
 import joi from "joi";
 
-const colorPalette = joi
-  .object({
-    0: joi.string().required(),
-    5: joi.string().required(),
-    10: joi.string().required(),
-    15: joi.string().required(),
-    20: joi.string().required(),
-    25: joi.string().required(),
-    30: joi.string().required(),
-    35: joi.string().required(),
-    40: joi.string().required(),
-    50: joi.string().required(),
-    60: joi.string().required(),
-    70: joi.string().required(),
-    80: joi.string().required(),
-    90: joi.string().required(),
-    95: joi.string().required(),
-    98: joi.string().required(),
-    99: joi.string().required(),
-    100: joi.string().required(),
-  })
-  .required();
+const colorPalette = joi.object({
+  0: joi.string().required(),
+  5: joi.string().required(),
+  10: joi.string().required(),
+  15: joi.string().required(),
+  20: joi.string().required(),
+  25: joi.string().required(),
+  30: joi.string().required(),
+  35: joi.string().required(),
+  40: joi.string().required(),
+  50: joi.string().required(),
+  60: joi.string().required(),
+  70: joi.string().required(),
+  80: joi.string().required(),
+  90: joi.string().required(),
+  95: joi.string().required(),
+  98: joi.string().required(),
+  99: joi.string().required(),
+  100: joi.string().required(),
+});
 
 const sysBaseSchema = joi.object({
   primary: joi.string().required(),
@@ -83,22 +81,28 @@ export const md3ThemeSchema = joi.object({
   coreColors: joi
     .object({
       primary: joi.string().required(),
-      secondary: joi.string().required(),
+      secondary: joi.string(),
+      tertiary: joi.string(),
+      error: joi.string(),
       neutral: joi.string().required(),
-      neutralVariant: joi.string().required(),
+      neutralVariant: joi.string(),
     })
     .required(),
   schemes: joi.object({
-    light: sysBaseSchema,
-    dark: sysBaseSchema,
+    "light": sysBaseSchema,
+    "light-medium-contrast": sysBaseSchema,
+    "light-high-contrast": sysBaseSchema,
+    "dark": sysBaseSchema,
+    "dark-medium-contrast": sysBaseSchema,
+    "dark-high-contrast": sysBaseSchema,
   }),
   palettes: joi.object({
-    primary: colorPalette,
-    secondary: colorPalette,
-    tertiary: colorPalette,
-    error: colorPalette,
-    neutral: colorPalette,
-    neutralVariant: colorPalette,
+    "primary": colorPalette.required(),
+    "secondary": colorPalette,
+    "tertiary": colorPalette,
+    "error": colorPalette,
+    "neutral": colorPalette.required(),
+    "neutral-variant": colorPalette,
   }),
   styles: joi.object(),
   extendedColors: joi.array(),

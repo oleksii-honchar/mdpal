@@ -56,6 +56,7 @@ class ThemeConvertor {
       } catch (err) {
         this.logger.error(logHeader, err);
         toast.error(`File schema validation failed: ${(err as Error).message}`);
+        return;
       }
 
       const tailwindTokensJson = this.convertTheme(mdThemeJson);
@@ -74,11 +75,12 @@ class ThemeConvertor {
   /**
    *
    * @param mdThemeJson
+   * by 31.10.2023
    * @returns {
    *  md: {
    *    sys: {light: {}, dark: {}}
    *    ref: {
-   *      palette: {
+   *      pal: {
    *        primary, secondary, neutral, neutral-variant,
    *        primaryXXX, secondaryXXX, tertiaryXXX,
    *        errorXXX, neutralXXX, neutral-variantXXX
@@ -109,18 +111,18 @@ class ThemeConvertor {
     nl.set(tailwindTokensJson, "sys.dark", sysDarkColors);
 
     Object.entries(nl.get(mdThemeJson, "coreColors")).forEach(([key, value]) => {
-      nl.set(tailwindTokensJson, `ref.palette.${camelToKebab(key)}`, value);
+      nl.set(tailwindTokensJson, `ref.pal.${camelToKebab(key)}`, value);
     });
 
     const refThemeKeys = [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 98, 99];
-    const refList = ["primary", "secondary", "tertiary", "error", "neutral", "neutralVariant"];
+    const refList = ["primary", "secondary", "tertiary", "error", "neutral", "neutral-variant"];
     refList.forEach((ref) => {
       const tokenRef = camelToKebab(ref);
       // nl.set(tailwindTokensJson, `ref.${tokenRef}`, {}); // set object for type infer
 
       refThemeKeys.forEach((key) => {
         const tokenKey = 1000 - key * 10;
-        nl.set(tailwindTokensJson, `ref.palette.${tokenRef}${tokenKey}`, nl.get(mdThemeJson, `palettes.${ref}.${key}`));
+        nl.set(tailwindTokensJson, `ref.pal.${tokenRef}${tokenKey}`, nl.get(mdThemeJson, `palettes.${ref}.${key}`));
       });
     });
 

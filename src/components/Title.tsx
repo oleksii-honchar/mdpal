@@ -16,7 +16,7 @@ export function Title() {
           text-xs 
         `}
       >
-        &quot;Material Design&quot; palette theme converter
+        Material design palette converter
       </p>
     </div>
   );

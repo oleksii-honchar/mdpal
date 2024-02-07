@@ -27,8 +27,8 @@ Also one can check `Makefile` for more details on automation commands.
 ## How convert works
 
 - Converts color codes to TW standard format:
-  - `ref.primary.primary95`-> `ref.primary.50`
-  - `ref.primary.primary90`-> `ref.primary.100`
+  - `ref.primary.primary95`-> `ref.palette.primary50`
+  - `ref.primary.primary90`-> `ref.palette.primary100`
 - Fixes the token color reference to proper palette color code according to Figma tmpl
 
 ## Troubleshooting

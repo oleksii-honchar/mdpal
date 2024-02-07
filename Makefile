@@ -113,3 +113,8 @@ down-docker: ## docker down static image resolver
 # make tag-latest
 tag-latest: ## tag  image as latest
 	@docker tag $(IMAGE_NAME):$(LATEST_VERSION) $(IMAGE_NAME):latest
+
+# TS_NODE_PROJECT="./rnd/tsconfig.json" make run-script file=./rnd/generate-theme.ts
+run-script: ## runs *.ts file from "file" param, e.g. run-script file=test.ts
+	@node --no-warnings --experimental-specifier-resolution=node \
+		--loader ./scripts/ts-esm-loader-with-tsconfig-paths.js $(file)
